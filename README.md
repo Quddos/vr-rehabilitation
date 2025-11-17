@@ -45,10 +45,11 @@ CREATE TABLE IF NOT EXISTS sessions (
 
 ```bash
 npm install
+npm run seed   # optional: inserts demo sessions
 npm run dev
 ```
 
-Visit `http://localhost:3000/dashboard` for the clinician dashboard.
+Visit `http://localhost:3000/dashboard` after seeding to see charts populated.
 
 ### API
 

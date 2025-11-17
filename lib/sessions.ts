@@ -68,7 +68,7 @@ export async function insertSession(payload: SessionPayload) {
 
 export async function getSessions(): Promise<Session[]> {
   const sql = getDbClient();
-  const rows = await sql<SessionRow>`
+  const rows = (await sql`
     SELECT
       id,
       session_id,
@@ -81,7 +81,7 @@ export async function getSessions(): Promise<Session[]> {
       date
     FROM sessions
     ORDER BY date DESC, id DESC;
-  `;
+  `) as SessionRow[];
 
   return rows.map((row) => ({
     id: row.id,
