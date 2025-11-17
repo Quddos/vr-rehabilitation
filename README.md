@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## VR Stroke Rehabilitation Dashboard
 
-## Getting Started
+Full-stack Next.js 14 (App Router) dashboard backed by Neon Postgres. Unity/Quest headsets upload session JSON via the `/api/sessions` route, and clinicians can review smoothness, timing, and bilateral balance trends inside the dashboard.
 
-First, run the development server:
+### Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js 14 App Router, React Server Components
+- Tailwind CSS (v4)
+- Neon Postgres via `@neondatabase/serverless`
+- Recharts for data visualization
+- Type-safe validation with `zod`
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- Neon Postgres database with a `DATABASE_URL`
+
+### Environment Variables
+
+Create a `.env.local` file with:
+
+```
+DATABASE_URL="your-neon-postgres-connection-string"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Database Migration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Run the SQL in `migrations/001_create_sessions.sql` on your Neon database:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sql
+CREATE TABLE IF NOT EXISTS sessions (
+  id SERIAL PRIMARY KEY,
+  session_id TEXT,
+  smoothness FLOAT,
+  time_score FLOAT,
+  final_score FLOAT,
+  duration FLOAT,
+  left_smoothness FLOAT,
+  right_smoothness FLOAT,
+  date TEXT
+);
+```
 
-## Learn More
+### Install & Run
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Visit `http://localhost:3000/dashboard` for the clinician dashboard.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### API
 
-## Deploy on Vercel
+- `POST /api/sessions`  
+  Accepts JSON payloads shaped as:
+  ```json
+  {
+    "session_id": "UNITY-001",
+    "smoothness": 0.82,
+    "time_score": 0.71,
+    "final_score": 0.76,
+    "duration": 315.4,
+    "left_smoothness": 0.78,
+    "right_smoothness": 0.69,
+    "date": "2025-03-24T10:30:00Z"
+  }
+  ```
+- `GET /api/sessions`  
+  Returns all stored sessions ordered by newest.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Dashboard Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Summary cards: average smoothness, best score, total sessions
+- Session table with smoothness, final score, duration, left/right balance
+- Trend charts: smoothness & final score over time, left/right difference heatmap
+
+### Deployment
+
+Deploy on Vercel. Set the `DATABASE_URL` production secret to your Neon connection string. Neon HTTP driver works on Vercel Edge Functions (API route exports `runtime = "edge"`). 
