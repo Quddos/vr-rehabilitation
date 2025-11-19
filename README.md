@@ -4,10 +4,6 @@ Project overview
 SynecliptXR is an experimental VR system and supporting web service for adaptive visualization, cognitive assessment, and stroke rehabilitation insight. The system integrates a Unity XR application running on Meta Quest 3 devices with a Next.js web dashboard and a Neon-hosted PostgreSQL database. Unity clients (Quest headsets) upload per-session rehabilitation metrics to a REST API. Clinicians can view live session data and trends on the dashboard.
 <img width="1916" height="970" alt="image" src="https://github.com/user-attachments/assets/feba3bfe-84df-4110-bdfe-a02b11811c30" />
 ## SynecliptXR: Adaptive Visualization VR Cognitive Assessment System
-
-	
-  
-
 Authors:
 
 - Raheem Qudus 
