@@ -1,9 +1,11 @@
+Project overview
+**SynecliptXR: Adaptive Visualization VR Cognitive Assessment System with AI-Driven Stroke Rehabilitation Insight.**
+
+SynecliptXR is an experimental VR system and supporting web service for adaptive visualization, cognitive assessment, and stroke rehabilitation insight. The system integrates a Unity XR application running on Meta Quest 3 devices with a Next.js web dashboard and a Neon-hosted PostgreSQL database. Unity clients (Quest headsets) upload per-session rehabilitation metrics to a REST API. Clinicians can view live session data and trends on the dashboard.
 <img width="1916" height="970" alt="image" src="https://github.com/user-attachments/assets/feba3bfe-84df-4110-bdfe-a02b11811c30" />
-
-
 ## SynecliptXR: Adaptive Visualization VR Cognitive Assessment System
 
-	itle{SynecliptXR: Adaptive Visualization VR Cognitive Assessment System with AI-Driven Stroke Rehabilitation Insight.}
+	
   
 
 Authors:
@@ -20,10 +22,7 @@ Authors:
   - School of Computer Engineering, KIIT Deemed to be University, Odisha, India
   - niranjan.rayfcs@kiit.ac.in
 
-Project overview
-----------------
 
-SynecliptXR is an experimental VR system and supporting web service for adaptive visualization, cognitive assessment, and stroke rehabilitation insight. The system integrates a Unity XR application running on Meta Quest 3 devices with a Next.js web dashboard and a Neon-hosted PostgreSQL database. Unity clients (Quest headsets) upload per-session rehabilitation metrics to a REST API. Clinicians can view live session data and trends on the dashboard.
 
 This repository contains the Next.js dashboard and API, a small database access library, migration seed scripts, and example client payload formats used by Unity.
 
