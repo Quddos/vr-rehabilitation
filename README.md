@@ -1,3 +1,6 @@
+<img width="1916" height="970" alt="image" src="https://github.com/user-attachments/assets/feba3bfe-84df-4110-bdfe-a02b11811c30" />
+
+
 ## VR Stroke Rehabilitation Dashboard
 
 Full-stack Next.js 14 (App Router) dashboard backed by Neon Postgres. Unity/Quest headsets upload session JSON via the `/api/sessions` route, and clinicians can review smoothness, timing, and bilateral balance trends inside the dashboard.
@@ -9,6 +12,9 @@ Full-stack Next.js 14 (App Router) dashboard backed by Neon Postgres. Unity/Ques
 - Neon Postgres via `@neondatabase/serverless`
 - Recharts for data visualization
 - Type-safe validation with `zod`
+
+- <img width="1332" height="871" alt="image" src="https://github.com/user-attachments/assets/eea8a5b1-1a1b-4ce0-b90e-a4598c2e4885" />
+
 
 ### Prerequisites
 
