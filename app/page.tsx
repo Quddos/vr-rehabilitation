@@ -22,12 +22,12 @@ export default function Home() {
             Open Dashboard
           </Link>
           <a
-            href="https://neon.tech/docs/guides/serverless"
+            href="https://github.com/Quddos/vr-rehabilitation"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center rounded-full border border-teal-200 px-8 py-3 text-base font-semibold text-teal-700 transition hover:border-teal-400 hover:text-teal-900"
           >
-            Learn about Neon
+            Learn about The working stack
           </a>
         </div>
       </div>

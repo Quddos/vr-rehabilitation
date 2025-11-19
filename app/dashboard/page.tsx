@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { TrendCharts } from "@/components/dashboard/TrendCharts";
 import { getSessions } from "@/lib/sessions";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "VR Stroke Rehab | Dashboard",
   description:
